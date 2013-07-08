@@ -24,17 +24,23 @@
     </head>
 
     <body>
-        @include('frontend.layouts.navbar')
-        <div class="container">
-            <!-- Notifications -->
-            @include('notifications')
+        <div id="container">
+            @include('frontend.layouts.navbar')
+            <div class="content">
+                <div class="container-fluid">
+                    <!-- Notifications -->
+                    @include('notifications')
 
-            <!-- Content -->
-            @yield('content')
-        <hr />
+                    <!-- Content -->
+                    @yield('content')
+                </div>
+            </div>
+        </div>
         <!-- Footer -->
         <footer>
-            <p>&copy; Company {{ date('Y') }}</p>
+            <div class="container">
+                <p class="muted credit">&copy; {{ date('Y') }} - Skeleton Laravel</p>
+            </div>
         </footer>
 
         {{ basset_javascripts('application') }}

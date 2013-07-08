@@ -2,9 +2,7 @@
     <div class="navbar-inner">
         <a class="brand" href="#">Skeleton Laravel</a>
         <ul class="nav">
-            <li class="active"><a href="#">Início</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
+            <li {{ (Request::is('/') ? 'class="active"' : '') }}><a href="{{ route('home') }}">Home</a></li>
         </ul>
     </div>
 </div>

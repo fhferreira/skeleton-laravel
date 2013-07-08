@@ -4,14 +4,14 @@
 	"keywords": ["framework", "laravel", "Starter Site", "Skeleton"],
 	"repositories": [
     {
-        "type": "package",
-        "package": {
-            "name": "cssmin/cssmin",
-            "version": "3.0.1",
-            "dist": { "url": "http://cssmin.googlecode.com/files/cssmin-v3.0.1.php", "type": "file" },
-            "autoload": { "classmap": [ "cssmin-v3.0.1.php" ] }
-        	}
-    	}
+	    "type": "package",
+	    "package": {
+	        "name": "cssmin/cssmin",
+	        "version": "3.0.1",
+	        "dist": { "url": "http://cssmin.googlecode.com/files/cssmin-v3.0.1.php", "type": "file" },
+	        "autoload": { "classmap": [ "cssmin-v3.0.1.php" ] }
+	    	}
+		}
 	],
 	"require": {
 		"laravel/framework": "4.1.*",
