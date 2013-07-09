@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-    Hello World ::
+    Hello World
 @parent
 @stop
 

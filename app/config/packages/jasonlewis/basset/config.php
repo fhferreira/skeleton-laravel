@@ -48,8 +48,8 @@ return array(
             // so the built collection contains valid JS.
             $directory = $collection->directory('assets/js', function($collection)
             {
-                $collection->javascript('bootstrap.min.js');
                 $collection->javascript('http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+                $collection->javascript('bootstrap.min.js');
             });
 
             $directory->apply('JsMin');

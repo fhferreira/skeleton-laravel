@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <title>
             @section('title')
-            Skeleton Laravel
+            :: Skeleton Laravel
             @show
         </title>
         <meta name="keywords" content="skeleton, laravel, skeleton larevel" />
@@ -27,7 +27,7 @@
         <div id="container">
             @include('frontend.layouts.navbar')
             <div class="content">
-                <div class="container-fluid">
+                <div class="container">
                     <!-- Notifications -->
                     @include('notifications')
 
