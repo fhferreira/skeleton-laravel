@@ -2,22 +2,9 @@
 	"name": "franciscpd/skeleton-laravel",
 	"description": "Skeleton base site for Laravel 4",
 	"keywords": ["framework", "laravel", "Starter Site", "Skeleton"],
-	"repositories": [
-    {
-	    "type": "package",
-	    "package": {
-	        "name": "cssmin/cssmin",
-	        "version": "3.0.1",
-	        "dist": { "url": "http://cssmin.googlecode.com/files/cssmin-v3.0.1.php", "type": "file" },
-	        "autoload": { "classmap": [ "cssmin-v3.0.1.php" ] }
-	    	}
-		}
-	],
 	"require": {
 		"laravel/framework": "4.1.*",
-		"cartalyst/sentry": "2.0.*",
-		"jasonlewis/basset": "4.0.*@dev",
-		"cssmin/cssmin": "3.0.*"
+		"jasonlewis/basset": "4.0.*@dev"
 	},
 	"require-dev": {
 		"leafo/lessphp": "v0.3.9"

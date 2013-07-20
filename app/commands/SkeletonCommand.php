@@ -53,20 +53,17 @@ class SkeletonCommand extends Command {
         $this->comment('');
         $this->info('  Step: 1');
         $this->comment('');
-        $this->info('    Please follow the following');
-        $this->info('    instructions to create your');
-        $this->info('    default user.');
+        $this->info('    Por favor siga as seguintes');
+        $this->info('    instruções para criar o seu');
+        $this->info('    usuário padrão da aplicação.');
         $this->comment('');
         $this->comment('-------------------------------------');
         $this->comment('');
 
-
-        // Let's ask the user some questions, shall we?
         $this->askUserFirstName();
         $this->askUserLastName();
         $this->askUserEmail();
         $this->askUserPassword();
-
 
         $this->comment('');
         $this->comment('');
@@ -74,7 +71,7 @@ class SkeletonCommand extends Command {
         $this->comment('');
         $this->info('  Step: 2');
         $this->comment('');
-        $this->info('    Preparing your Application');
+        $this->info('    Preparando sua aplicação');
         $this->comment('');
         $this->comment('-------------------------------------');
         $this->comment('');
@@ -108,17 +105,13 @@ class SkeletonCommand extends Command {
     {
         do
         {
-            // Ask the user to input the first name
-            $first_name = $this->ask('Please enter your first name: ');
+            $first_name = $this->ask('Informe seu primeiro nome: ');
 
-            // Check if the first name is valid
             if ($first_name == '')
             {
-                // Return an error message
-                $this->error('Your first name is invalid. Please try again.');
+                $this->error('Não deixe em branco, digite novamente.');
             }
 
-            // Store the user first name
             $this->userData['first_name'] = $first_name;
         }
         while( ! $first_name);
@@ -134,17 +127,13 @@ class SkeletonCommand extends Command {
     {
         do
         {
-            // Ask the user to input the last name
-            $last_name = $this->ask('Please enter your last name: ');
+            $last_name = $this->ask('Informe seu sobrenome: ');
 
-            // Check if the last name is valid.
             if ($last_name == '')
             {
-                // Return an error message
-                $this->error('Your last name is invalid. Please try again.');
+                $this->error('Não deixe em branco, digite novamente.');
             }
 
-            // Store the user last name
             $this->userData['last_name'] = $last_name;
         }
         while( ! $last_name);
@@ -160,17 +149,12 @@ class SkeletonCommand extends Command {
     {
         do
         {
-            // Ask the user to input the email address
-            $email = $this->ask('Please enter your user email: ');
+            $email = $this->ask('Informe seu e-mail: ');
 
-            // Check if email is valid
             if ($email == '')
             {
-                // Return an error message
-                $this->error('Email is invalid. Please try again.');
+                $this->error('Não deixe em branco, digite novamente.');
             }
-
-            // Store the email address
             $this->userData['email'] = $email;
         }
         while ( ! $email);
@@ -186,17 +170,13 @@ class SkeletonCommand extends Command {
     {
         do
         {
-            // Ask the user to input the user password
-            $password = $this->ask('Please enter your user password: ');
+            $password = $this->ask('Informe sua senha: ');
 
-            // Check if email is valid
             if ($password == '')
             {
-                // Return an error message
-                $this->error('Password is invalid. Please try again.');
+                $this->error('A senha não pode ser deixada em branco, digite novamente.');
             }
 
-            // Store the password
             $this->userData['password'] = $password;
         }
         while( ! $password);
@@ -209,14 +189,8 @@ class SkeletonCommand extends Command {
      */
     protected function sentryRunner()
     {
-        // Create the default groups
         $this->sentryCreateDefaultGroups();
-
-        // Create the user
         $this->sentryCreateUser();
-
-        // Create dummy user
-        $this->sentryCreateDummyUser();
     }
 
     /**
@@ -228,9 +202,8 @@ class SkeletonCommand extends Command {
     {
         try
         {
-            // Create the admin group
             $group = Sentry::getGroupProvider()->create(array(
-                'name'        => 'Admin',
+                'name'        => 'Administrador',
                 'permissions' => array(
                     'admin' => 1,
                     'users' => 1
@@ -239,11 +212,11 @@ class SkeletonCommand extends Command {
 
             // Show the success message.
             $this->comment('');
-            $this->info('Admin group created successfully.');
+            $this->info('Grupo Administrador criado com sucesso.');
         }
         catch (Cartalyst\Sentry\Groups\GroupExistsException $e)
         {
-            $this->error('Group already exists.');
+            $this->error('Grupo já existe.');
         }
     }
 
@@ -254,7 +227,6 @@ class SkeletonCommand extends Command {
      */
     protected function sentryCreateUser()
     {
-        // Prepare the user data array.
         $data = array_merge($this->userData, array(
             'activated'   => 1,
             'permissions' => array(
@@ -263,37 +235,14 @@ class SkeletonCommand extends Command {
             ),
         ));
 
-        // Create the user
         $user = Sentry::getUserProvider()->create($data);
 
-        // Associate the Admin group to this user
         $group = Sentry::getGroupProvider()->findById(1);
         $user->addGroup($group);
 
-        // Show the success message
         $this->comment('');
-        $this->info('Your user was created successfully.');
+        $this->info('Usuário criado com sucesso.');
         $this->comment('');
-    }
-
-    /**
-     * Create a dummy user.
-     *
-     * @return void
-     */
-    protected function sentryCreateDummyUser()
-    {
-        // Prepare the user data array.
-        $data = array(
-            'first_name' => 'John',
-            'last_name'  => 'Doe',
-            'email'      => 'john.doe@example.com',
-            'password'   => 'johndoe',
-            'activated'  => 1,
-        );
-
-        // Create the user
-        Sentry::getUserProvider()->create($data);
     }
 
 }

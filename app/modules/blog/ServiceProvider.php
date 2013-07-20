@@ -1,15 +1,15 @@
-<?php namespace App\Modules\Hello;
+<?php namespace App\Modules\Blog;
 
 class ServiceProvider extends \App\Modules\ServiceProvider {
 
     public function register()
     {
-        parent::register('hello');
+        parent::register('blog');
     }
 
     public function boot()
     {
-        parent::boot('hello');
+        parent::boot('blog');
     }
 
 }

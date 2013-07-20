@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => 'fJS8s8knkCF7ADbsr13dzAb3VUQCXP8N',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -114,8 +114,8 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'App\Modules\Hello\ServiceProvider',
 		'Basset\BassetServiceProvider',
+		'App\Modules\Blog\ServiceProvider',
 	),
 
 	/*
